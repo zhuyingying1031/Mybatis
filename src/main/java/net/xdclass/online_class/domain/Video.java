@@ -7,9 +7,9 @@ public class Video {
 	private  int id;
 	private String title;
 	private String summary;
-	private String 	cover_img;
+	private String 	coverImg;
 	private float price;
-	private Date create_time;
+	private Date createTime;
 	private  float point;
 
 	public float getPoint() {
@@ -44,12 +44,12 @@ public class Video {
 		this.summary = summary;
 	}
 
-	public String getCover_img() {
-		return cover_img;
+	public String getCoverImg() {
+		return coverImg;
 	}
 
-	public void setCover_img(String cover_img) {
-		this.cover_img = cover_img;
+	public void setCoverImg(String cover_img) {
+		this.coverImg = cover_img;
 	}
 
 	public float getPrice() {
@@ -61,11 +61,11 @@ public class Video {
 	}
 
 	public Date getCreate_time() {
-		return create_time;
+		return createTime;
 	}
 
 	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
+		this.createTime = create_time;
 	}
 
 	@Override
@@ -74,9 +74,9 @@ public class Video {
 				"id=" + id +
 				", title='" + title + '\'' +
 				", summary='" + summary + '\'' +
-				", cover_img='" + cover_img + '\'' +
+				", cover_img='" + coverImg + '\'' +
 				", price=" + price +
-				", create_time=" + create_time +
+				", create_time=" + createTime +
 				", point=" + point +
 				'}';
 	}

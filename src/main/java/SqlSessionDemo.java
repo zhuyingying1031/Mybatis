@@ -33,7 +33,7 @@ public class SqlSessionDemo {
 				 */
 
 
-				List<Video> videoList =  videoMapper.selectByPointAndTitleLike((float) 9.1,"19");
+				List<Video> videoList =  videoMapper.selectByPointAndTitleLike((float) 8.7,"HTML");
 				System.out.println(videoList.toString());
 
 
