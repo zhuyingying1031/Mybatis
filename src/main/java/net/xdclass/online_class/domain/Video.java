@@ -10,6 +10,15 @@ public class Video {
 	private String 	cover_img;
 	private float price;
 	private Date create_time;
+	private  float point;
+
+	public float getPoint() {
+		return point;
+	}
+
+	public void setPoint(float point) {
+		this.point = point;
+	}
 
 	public int getId() {
 		return id;
@@ -68,6 +77,7 @@ public class Video {
 				", cover_img='" + cover_img + '\'' +
 				", price=" + price +
 				", create_time=" + create_time +
+				", point=" + point +
 				'}';
 	}
 }

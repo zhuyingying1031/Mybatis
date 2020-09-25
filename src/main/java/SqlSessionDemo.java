@@ -22,15 +22,19 @@ public class SqlSessionDemo {
 				/**
 				 * 第一种获取，配合VideoMapper.xml一起使用
 				 *
-				 *
+				 *Video video = videoMapper.selectById(40);
+				 * 				System.out.println(video.toString());
 				 */
-				Video video = videoMapper.selectById(40);
-				System.out.println(video.toString());
+
 				/**
 				 * 通过注解.配合VideoMapper中是注解sql一起使用
 				 * List<Video> videoList =  videoMapper.selectList();
 				 * System.out.println(videoList.toString());
 				 */
+
+
+				List<Video> videoList =  videoMapper.selectByPointAndTitleLike((float) 9.1,"19");
+				System.out.println(videoList.toString());
 
 
 			}

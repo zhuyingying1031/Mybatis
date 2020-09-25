@@ -11,4 +11,5 @@ public interface VideoMapper {
 	List<Video> selectListByXML();
 	@Select("select * from video")
 	List<Video> selectList();
+	List<Video> selectByPointAndTitleLike(@Param("point") float point,@Param("title") String title);
 }
