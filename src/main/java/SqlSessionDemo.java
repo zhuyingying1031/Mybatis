@@ -7,8 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class SqlSessionDemo {
 		public static void main(String [] args) throws IOException {
@@ -38,22 +37,44 @@ public class SqlSessionDemo {
 				 */
 
 
+				/**新增一条记录
+				 * Video video =  new Video();
+				 * 				video.setTitle("小滴课堂面试专题900道");
+				 * 				video.setCoverImg("xdclass.net/aaa.png");
+				 * 				video.setPoint((float) 9.4);
+				 * 				video.setCreate_time(new Date());
+				 * 				video.setPrice(9900);
+				 * 				video.setSummary("这个是面试专题概要");
+				 * 				int rows = videoMapper.add(video);
+				 * 				System.out.println(rows);
+				 * 				System.out.println(video.toString());
+				 */
 
+				/**
+				 * 新增多条记录
+				 */
 
-				//新增一条记录
-				Video video =  new Video();
+				Video video=new Video();
 				video.setTitle("小滴课堂面试专题900道");
 				video.setCoverImg("xdclass.net/aaa.png");
 				video.setPoint((float) 9.4);
 				video.setCreate_time(new Date());
 				video.setPrice(9900);
-				video.setSummary("这个是面试专题概要");
+				video.setSummary("这个是面试专题概要111");
+				Video video1 =  new Video();
+				video1.setTitle("小滴课堂面试专题900道111");
+				video1.setCoverImg("xdclass.net/aaa111.png");
+				video1.setPoint((float) 9.4);
+				video1.setCreate_time(new Date());
+				video1.setPrice(9900);
+				video1.setSummary("这个是面试专题概要111");
 
-				int rows = videoMapper.add(video);
+				List <Video>  videoList =  new ArrayList<>();
 
-				System.out.println(rows);
+				videoList.add(video);
+				videoList.add(video1);
 
-				System.out.println(video.toString());
+				int rows = videoMapper.addBatch(videoList);
 
 
 
