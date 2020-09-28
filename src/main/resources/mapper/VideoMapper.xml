@@ -37,4 +37,22 @@ mybatis是使用接口动态代理
             (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.coverImg,jdbcType=VARCHAR}, #{video.price,jdbcType=INTEGER}, #{video.createTime,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE})
         </foreach>
     </insert>
+
+    <update id="updateVideo" parameterType="net.xdclass.online_class.domain.Video">
+
+        update video
+
+        set
+        title = #{title,jdbcType=VARCHAR},
+        summary = #{summary,jdbcType=VARCHAR},
+        cover_img = #{coverImg,jdbcType=VARCHAR},
+        price = #{price,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        point = #{point,jdbcType=DOUBLE}
+
+        where
+        id = #{id}
+
+
+    </update>
 </mapper>

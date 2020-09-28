@@ -52,30 +52,41 @@ public class SqlSessionDemo {
 
 				/**
 				 * 新增多条记录
+				 * Video video=new Video();
+				 * 				video.setTitle("小滴课堂面试专题900道");
+				 * 				video.setCoverImg("xdclass.net/aaa.png");
+				 * 				video.setPoint((float) 9.4);
+				 * 				video.setCreate_time(new Date());
+				 * 				video.setPrice(9900);
+				 * 				video.setSummary("这个是面试专题概要111");
+				 * 				Video video1 =  new Video();
+				 * 				video1.setTitle("小滴课堂面试专题900道111");
+				 * 				video1.setCoverImg("xdclass.net/aaa111.png");
+				 * 				video1.setPoint((float) 9.4);
+				 * 				video1.setCreate_time(new Date());
+				 * 				video1.setPrice(9900);
+				 * 				video1.setSummary("这个是面试专题概要111");
+				 * 				List <Video>  videoList =  new ArrayList<>();
+				 * 				videoList.add(video);
+				 * 				videoList.add(video1);
+				 * 				int rows = videoMapper.addBatch(videoList);
 				 */
 
-				Video video=new Video();
+
+				/**
+				 * 更新
+				 */
+				Video video =  new Video();
+				video.setId(50);
 				video.setTitle("小滴课堂面试专题900道");
 				video.setCoverImg("xdclass.net/aaa.png");
 				video.setPoint((float) 9.4);
 				video.setCreate_time(new Date());
 				video.setPrice(9900);
-				video.setSummary("这个是面试专题概要111");
-				Video video1 =  new Video();
-				video1.setTitle("小滴课堂面试专题900道111");
-				video1.setCoverImg("xdclass.net/aaa111.png");
-				video1.setPoint((float) 9.4);
-				video1.setCreate_time(new Date());
-				video1.setPrice(9900);
-				video1.setSummary("这个是面试专题概要111");
-
-				List <Video>  videoList =  new ArrayList<>();
-
-				videoList.add(video);
-				videoList.add(video1);
-
-				int rows = videoMapper.addBatch(videoList);
-
+				video.setSummary("这个是面试专题概要");
+				int rows = videoMapper.updateVideo(video);
+				System.out.println(rows);
+				System.out.println(video.toString());
 
 
 			}
