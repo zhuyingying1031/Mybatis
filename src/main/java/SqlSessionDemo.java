@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 public class SqlSessionDemo {
@@ -21,9 +22,13 @@ public class SqlSessionDemo {
 				VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
 				/**
 				 * 第一种获取，配合VideoMapper.xml一起使用
-				 *
+				 *(1)
 				 *Video video = videoMapper.selectById(40);
 				 * 				System.out.println(video.toString());
+				 *
+				 * (2)
+				 * 	List<Video> videoList =  videoMapper.selectByPointAndTitleLike((float) 8.7,"HTML");
+				 * 				System.out.println(videoList.toString());
 				 */
 
 				/**
@@ -33,8 +38,23 @@ public class SqlSessionDemo {
 				 */
 
 
-				List<Video> videoList =  videoMapper.selectByPointAndTitleLike((float) 8.7,"HTML");
-				System.out.println(videoList.toString());
+
+
+				//新增一条记录
+				Video video =  new Video();
+				video.setTitle("小滴课堂面试专题900道");
+				video.setCoverImg("xdclass.net/aaa.png");
+				video.setPoint((float) 9.4);
+				video.setCreate_time(new Date());
+				video.setPrice(9900);
+				video.setSummary("这个是面试专题概要");
+
+				int rows = videoMapper.add(video);
+
+				System.out.println(rows);
+
+				System.out.println(video.toString());
+
 
 
 			}
