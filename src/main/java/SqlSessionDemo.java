@@ -86,15 +86,28 @@ public class SqlSessionDemo {
 				 * 				int rows = videoMapper.updateVideo(video);
 				 * 				System.out.println(rows);
 				 * 				System.out.println(video.toString());
+				 *
+				 * 		指定更新某几个字段
+				 * 	Video video =  new Video();
+				 * 				video.setId(50);
+				 * 				video.setTitle("小滴课堂面试专题900道---------");
+				 * 				video.setSummary("这个是面试专题概要---------");
+				 * 				int rows = videoMapper.updateVideoSelective(video);
+				 * 				System.out.println(rows);
+				 * 				System.out.println(video.toString());
+				 *
 				 */
-				Video video =  new Video();
-				video.setId(50);
-				video.setTitle("小滴课堂面试专题900道---------");
-				video.setSummary("这个是面试专题概要---------");
-				int rows = videoMapper.updateVideoSelective(video);
-				System.out.println(rows);
-				System.out.println(video.toString());
 
+
+				/**
+				 * 删除
+				 *
+				 */
+
+				Map<String,Object> map =new HashMap<>();
+				map.put("createTime","2020-09-28 03:14:36");
+				map.put("price","9901");
+				int rows = videoMapper.deleteByCreateTimeAndPrice(map);
 
 			}
 		}

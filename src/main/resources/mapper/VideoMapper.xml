@@ -66,10 +66,16 @@ mybatis是使用接口动态代理
             <if test="coverImg != null "> cover_img = #{coverImg,jdbcType=VARCHAR},</if>
             <if test="price != 0 "> price = #{price,jdbcType=INTEGER},</if>
             <if test="createTime !=null "> create_time = #{createTime,jdbcType=TIMESTAMP},</if>
-            <!--一定要看pojo类里面的是基本数据类型，还是包装数据类型-->
+            <!--一定要看pojo类里面的是基本数据类型，还是包装数据类型,只有包装数据类型，才有null的判断-->
             <if test="point != null "> point = #{point,jdbcType=DOUBLE},</if>
         </trim>
         where
         id = #{id}
     </update>
+
+    <delete id="deleteByCreateTimeAndPrice" parameterType="java.util.Map">
+
+        delete from video where create_time <![CDATA[ > ]]> #{createTime} and price <![CDATA[ >= ]]> #{price}
+
+    </delete>
 </mapper>
