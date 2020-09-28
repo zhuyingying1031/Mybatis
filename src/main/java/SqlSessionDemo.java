@@ -75,16 +75,23 @@ public class SqlSessionDemo {
 
 				/**
 				 * 更新
+				 * Video video =  new Video();
+				 * 				video.setId(50);
+				 * 				video.setTitle("小滴课堂面试专题900道");
+				 * 				video.setCoverImg("xdclass.net/aaa.png");
+				 * 				video.setPoint((float) 9.4);
+				 * 				video.setCreate_time(new Date());
+				 * 				video.setPrice(9900);
+				 * 				video.setSummary("这个是面试专题概要");
+				 * 				int rows = videoMapper.updateVideo(video);
+				 * 				System.out.println(rows);
+				 * 				System.out.println(video.toString());
 				 */
 				Video video =  new Video();
 				video.setId(50);
-				video.setTitle("小滴课堂面试专题900道");
-				video.setCoverImg("xdclass.net/aaa.png");
-				video.setPoint((float) 9.4);
-				video.setCreate_time(new Date());
-				video.setPrice(9900);
-				video.setSummary("这个是面试专题概要");
-				int rows = videoMapper.updateVideo(video);
+				video.setTitle("小滴课堂面试专题900道---------");
+				video.setSummary("这个是面试专题概要---------");
+				int rows = videoMapper.updateVideoSelective(video);
 				System.out.println(rows);
 				System.out.println(video.toString());
 
