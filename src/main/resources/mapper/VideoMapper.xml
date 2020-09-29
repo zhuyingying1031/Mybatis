@@ -8,19 +8,23 @@ namespace: 名称空间，一般需要保持全局唯一， 最好是和dao层�
 mybatis是使用接口动态代理
 -->
 <mapper namespace="net.xdclass.online_class.dao.VideoMapper">
+
+    <sql id="base_video_field">
+        id,title,summary,cover_img
+    </sql>
     <!--
     statement sql
     id： 当前mapper下需要唯一
     resultType : sql查询结果集的封装
     -->
-    <select id="selectById" parameterType="java.lang.Integer" resultType="net.xdclass.online_class.domain.Video">
-        select * from video where id = #{video_id,jdbcType=INTEGER}
+    <select id="selectById" parameterType="java.lang.Integer" resultType="Video">
+        select <include refid="base_video_field"/> from video where id = #{video_id,jdbcType=INTEGER}
     </select>
     <select id="selectListByXML" resultType="net.xdclass.online_class.domain.Video">
-        select * from video
+        select <include refid="base_video_field"/> from video
     </select>
     <select id="selectByPointAndTitleLike" resultType="net.xdclass.online_class.domain.Video">
-        select * from video where point=#{point} and title like concat('%', #{title},'%')
+        select <include refid="base_video_field"/> from video where point=#{point} and title like concat('%', #{title},'%')
     </select>
 
     <insert id="add" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
@@ -58,7 +62,7 @@ mybatis是使用接口动态代理
 
 
 
-    <update id="updateVideoSelective" parameterType="net.xdclass.online_class.domain.Video">
+    <update id="updateVideoSelective" parameterType="Video">
         update video
         <trim prefix="set" suffixOverrides=",">
             <if test="title != null "> title = #{title,jdbcType=VARCHAR},</if>
@@ -73,7 +77,7 @@ mybatis是使用接口动态代理
         id = #{id}
     </update>
 
-    <delete id="deleteByCreateTimeAndPrice" parameterType="java.util.Map">
+    <delete id="deleteByCreateTimeAndPrice" parameterType="Map">
 
         delete from video where create_time <![CDATA[ > ]]> #{createTime} and price <![CDATA[ >= ]]> #{price}
 

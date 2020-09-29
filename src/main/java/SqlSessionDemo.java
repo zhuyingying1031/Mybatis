@@ -30,6 +30,8 @@ public class SqlSessionDemo {
 				 * 				System.out.println(videoList.toString());
 				 */
 
+				Video video = videoMapper.selectById(40);
+				System.out.println(video.toString());
 				/**
 				 * 通过注解.配合VideoMapper中是注解sql一起使用
 				 * List<Video> videoList =  videoMapper.selectList();
@@ -101,13 +103,13 @@ public class SqlSessionDemo {
 
 				/**
 				 * 删除
-				 *
+				 *Map<String,Object> map =new HashMap<>();
+				 * 				map.put("createTime","2020-09-28 03:14:36");
+				 * 				map.put("price","9901");
+				 * 				int rows = videoMapper.deleteByCreateTimeAndPrice(map);
 				 */
 
-				Map<String,Object> map =new HashMap<>();
-				map.put("createTime","2020-09-28 03:14:36");
-				map.put("price","9901");
-				int rows = videoMapper.deleteByCreateTimeAndPrice(map);
+
 
 			}
 		}
