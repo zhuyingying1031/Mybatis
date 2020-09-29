@@ -30,8 +30,7 @@ public class SqlSessionDemo {
 				 * 				System.out.println(videoList.toString());
 				 */
 
-				Video video = videoMapper.selectById(40);
-				System.out.println(video.toString());
+
 				/**
 				 * 通过注解.配合VideoMapper中是注解sql一起使用
 				 * List<Video> videoList =  videoMapper.selectList();
@@ -109,7 +108,12 @@ public class SqlSessionDemo {
 				 * 				int rows = videoMapper.deleteByCreateTimeAndPrice(map);
 				 */
 
+				/**
+				 * resultMap结果集验证
+				 */
 
+				Video video =  videoMapper.selectBaseFieldByIdWithResultMap(45);
+				System.out.println(video.toString());
 
 			}
 		}
