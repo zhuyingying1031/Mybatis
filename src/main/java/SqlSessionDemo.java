@@ -110,11 +110,11 @@ public class SqlSessionDemo {
 
 				/**
 				 * resultMap结果集验证
+				 * Video video =  videoMapper.selectBaseFieldByIdWithResultMap(45);
+				 * 				System.out.println(video.toString());
 				 */
-
-				Video video =  videoMapper.selectBaseFieldByIdWithResultMap(45);
-				System.out.println(video.toString());
-
+				List<Video> videoList=videoMapper.queryVideoOrderList();
+				System.out.println(videoList.toString());
 			}
 		}
 
