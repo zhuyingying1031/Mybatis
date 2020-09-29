@@ -1,6 +1,8 @@
 package net.xdclass.online_class.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

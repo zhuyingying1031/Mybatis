@@ -7,7 +7,7 @@ namespace: 名称空间，一般需要保持全局唯一， 最好是和dao层�
 可以映射 sql语句 到对应的方法名称和参数、返回类型
 mybatis是使用接口动态代理
 -->
-<mapper namespace="net.xdclass.online_class.dao.VideoMapper">
+<mapper namespace="net.xdclass.online_class.dao.VideoOrderMapper">
 
     <resultMap id="VideoOrderResultMap" type="VideoOrder">
         <id column="id" property="id"/>
@@ -39,4 +39,31 @@ mybatis是使用接口动态代理
          from video_order o left join user u on o.user_id = u.id
     </select>
 
+
+    <resultMap id="UserOrderResultMap" type="User">
+        <id property="id"  column="id"/>
+        <result property="name" column="name"/>
+        <result property="headImg" column="head_img"/>
+        <result property="createTime" column="create_time"/>
+        <result property="phone" column="phone"/>
+        <!--
+        property 填写pojo类中集合类属性的名称
+        ofType 集合里面的pojo对象
+        -->
+        <collection property="videoOrderList" ofType="VideoOrder">
+            <!--配置主键，管理order的唯一标识-->
+            <id column="order_id" property="id"/>
+            <result column="user_id" property="userId"/>
+            <result column="out_trade_no" property="outTradeNo"/>
+            <result column="create_time" property="createTime"/>
+            <result column="state" property="state"/>
+            <result column="total_fee" property="totalFee"/>
+            <result column="video_id" property="videoId"/>
+            <result column="video_title" property="videoTitle"/>
+            <result column="video_img" property="videoImg"/>
+        </collection>
+    </resultMap>
+    <select id="queryUserOrder" resultMap="UserOrderResultMap">
+        select   u.id,    u.name,  u.head_img,  u.create_time, u.phone,   o.id order_id,  o.out_trade_no,   o.user_id,  o.create_time,  o.state,  o.total_fee,    o.video_id, o.video_title,   o.video_img  from user u left join video_order o on u.id = o.user_id
+    </select>
 </mapper>

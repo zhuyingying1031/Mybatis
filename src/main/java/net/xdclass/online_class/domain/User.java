@@ -1,6 +1,7 @@
 package net.xdclass.online_class.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -23,6 +24,16 @@ public class User {
 	private String phone;
 
 	private Date createTime;
+
+	private List<VideoOrder> videoOrderList;
+
+	public List<VideoOrder> getVideoOrderList() {
+		return videoOrderList;
+	}
+
+	public void setVideoOrderList(List<VideoOrder> videoOrderList) {
+		this.videoOrderList = videoOrderList;
+	}
 
 	public int getId() {
 		return id;
@@ -80,7 +91,8 @@ public class User {
 				", pwd='" + pwd + '\'' +
 				", HeadImg='" + HeadImg + '\'' +
 				", phone='" + phone + '\'' +
-				", createTimel=" + createTime +
+				", createTime=" + createTime +
+				", videoOrderList=" + videoOrderList +
 				'}';
 	}
 }

@@ -19,5 +19,5 @@ public interface VideoMapper {
 	int updateVideoSelective(Video video);
 	int deleteByCreateTimeAndPrice(Map<String,Object> map);
 	Video selectBaseFieldByIdWithResultMap (@Param("video_id") int videoId);
-	List<Video> queryVideoOrderList();
+
 }

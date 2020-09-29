@@ -1,4 +1,6 @@
 import net.xdclass.online_class.dao.VideoMapper;
+import net.xdclass.online_class.dao.VideoOrderMapper;
+import net.xdclass.online_class.domain.User;
 import net.xdclass.online_class.domain.Video;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -113,8 +115,16 @@ public class SqlSessionDemo {
 				 * Video video =  videoMapper.selectBaseFieldByIdWithResultMap(45);
 				 * 				System.out.println(video.toString());
 				 */
-				List<Video> videoList=videoMapper.queryVideoOrderList();
-				System.out.println(videoList.toString());
+
+
+				/**association验证
+				 * VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
+				 * List<Video> videoList=videoOrderMapper.queryVideoOrderList();
+				 * System.out.println(videoList.toString());
+				 */
+				VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
+				List<User> userList=videoOrderMapper.queryUserOrder();
+				System.out.println(userList.toString());
 			}
 		}
 
