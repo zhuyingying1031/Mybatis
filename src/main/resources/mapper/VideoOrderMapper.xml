@@ -9,6 +9,7 @@ mybatis是使用接口动态代理
 -->
 <mapper namespace="net.xdclass.online_class.dao.VideoOrderMapper">
 
+
     <resultMap id="VideoOrderResultMap" type="VideoOrder">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>

@@ -12,6 +12,9 @@ mybatis是使用接口动态代理
     <sql id="base_video_field">
         id,title,summary,cover_img
     </sql>
+
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"/>
+
     <!--
     statement sql
     id： 当前mapper下需要唯一

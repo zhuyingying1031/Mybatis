@@ -1,5 +1,6 @@
 package net.xdclass.online_class.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  *   `video_img` varchar(256) DEFAULT NULL COMMENT '视频图片',
  *   `user_id` int(12) DEFAULT NULL COMMENT '用户id',
  */
-public class VideoOrder {
+public class VideoOrder  implements Serializable {
 
 	private int id;
 
