@@ -2,6 +2,7 @@ import net.xdclass.online_class.dao.VideoMapper;
 import net.xdclass.online_class.dao.VideoOrderMapper;
 import net.xdclass.online_class.domain.User;
 import net.xdclass.online_class.domain.Video;
+import net.xdclass.online_class.domain.VideoOrder;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -122,9 +123,29 @@ public class SqlSessionDemo {
 				 * List<Video> videoList=videoOrderMapper.queryVideoOrderList();
 				 * System.out.println(videoList.toString());
 				 */
+
+				/**
+				 * 二级缓存
+				 *
+				 * VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
+				 * 				List<User> userList=videoOrderMapper.queryUserOrder();
+				 * 				System.out.println(userList.toString());
+				 */
+
+
+				/**
+				 * 懒加载
+				 */
 				VideoOrderMapper videoOrderMapper = sqlSession.getMapper(VideoOrderMapper.class);
-				List<User> userList=videoOrderMapper.queryUserOrder();
-				System.out.println(userList.toString());
+				List<VideoOrder> videoList=videoOrderMapper.queryVideoOrderListLazy();
+				/*
+				 * 不注释，查询2次数据，注释一条，只查询一次数据
+				 */
+				System.out.println(videoList.get(1).getId());
+				System.out.println(videoList.get(1).getUser().getName());
+
+
+
 			}
 		}
 

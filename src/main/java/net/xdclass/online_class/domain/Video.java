@@ -75,9 +75,9 @@ public class Video implements Serializable {
 				"id=" + id +
 				", title='" + title + '\'' +
 				", summary='" + summary + '\'' +
-				", cover_img='" + coverImg + '\'' +
+				", coverImg='" + coverImg + '\'' +
 				", price=" + price +
-				", create_time=" + createTime +
+				", createTime=" + createTime +
 				", point=" + point +
 				'}';
 	}
